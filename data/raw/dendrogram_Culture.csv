@@ -1,0 +1,260 @@
+,id,culture,continent
+0,0,,
+1,0.1,,
+2,0.2,,
+3,0.1.3,,
+4,0.1.3.4,,
+5,0.1.5,,
+6,0.1.3.6,,
+7,0.1.3.4.7,,
+8,0.1.3.6.8,,
+9,0.2.9,,
+10,0.1.3.4.10,,
+11,0.1.5.11,,
+12,0.1.3.4.7.12,,
+13,0.1.5.13,,
+14,0.2.14,,
+15,0.1.3.4.7.15,,
+16,0.2.9.16,,
+17,0.1.5.11.17,,
+18,0.1.3.4.7.15.18,,
+19,0.1.3.6.8.19,,
+20,0.1.3.6.20,,
+21,0.1.3.4.10.21,,
+22,0.1.5.11.22,,
+23,0.2.14.23,,
+24,0.2.9.16.24,,
+25,0.1.5.11.17.25,,
+26,0.2.14.26,,
+27,0.1.3.4.10.27,,
+28,0.1.3.4.7.12.28,,
+29,0.1.5.13.29,,
+30,0.1.5.13.30,,
+31,0.1.3.4.7.15.18.31,,
+32,0.2.9.16.32,,
+33,0.2.9.16.24.33,,
+34,0.1.3.6.20.34,,
+35,0.1.5.11.17.25.35,,
+36,0.2.14.26.36,,
+37,0.1.3.6.8.19.37,,
+38,0.1.3.4.10.27.38,,
+39,0.1.3.4.7.15.39,,
+40,0.1.5.11.22.40,,
+41,0.1.5.11.17.41,,
+42,0.2.9.42,,
+43,0.1.3.4.7.12.43,,
+44,0.1.3.6.20.34.44,,
+45,0.1.5.13.30.45,,
+46,0.1.3.4.10.21.46,,
+47,0.2.14.26.47,,
+48,0.2.9.16.24.33.48,,
+49,0.1.3.4.10.27.38.49,,
+50,0.2.9.42.50,,
+51,0.1.3.4.7.12.28.51,,
+52,0.2.14.23.52,,
+53,0.1.5.13.29.53,,
+54,0.1.3.4.10.27.54,,
+55,0.1.3.4.7.15.18.55,,
+56,0.2.9.16.24.56,,
+57,0.1.5.13.30.45.57,,
+58,0.2.9.16.24.33.58,,
+59,0.2.14.26.47.59,,
+60,0.1.5.11.17.25.35.60,,
+61,0.1.3.4.7.12.28.61,,
+62,0.1.5.11.17.25.35.62,,
+63,0.1.3.4.7.15.18.31.63,,
+64,0.1.3.4.10.27.38.49.64,,
+65,0.1.5.11.17.41.65,,
+66,0.1.5.13.29.66,,
+67,0.1.5.11.22.67,,
+68,0.1.3.4.10.27.38.68,,
+69,0.1.3.4.7.12.43.69,,
+70,0.1.5.13.30.45.57.70,,
+71,0.1.5.13.29.53.71,,
+72,0.2.9.16.24.56.72,,
+73,0.1.5.13.30.45.57.73,,
+74,0.2.14.23.52.74,,
+75,0.1.3.4.7.12.28.51.75,,
+76,0.2.9.16.24.33.48.76,,
+77,0.2.14.26.36.77,,
+78,0.1.3.4.10.21.46.78,,
+79,0.2.14.23.79,,
+80,0.2.14.23.52.74.80,,
+81,0.1.3.4.7.12.43.81,,
+82,0.1.3.6.20.34.44.82,,
+83,0.1.3.4.7.12.28.61.83,,
+84,0.2.14.26.36.77.84,,
+85,0.1.3.4.7.12.43.69.85,,
+86,0.1.3.4.10.27.38.49.86,,
+87,0.1.3.4.7.12.43.69.85.87,,
+88,0.1.3.4.10.27.54.88,,
+89,0.1.3.4.7.12.28.51.75.89,,
+90,0.2.14.26.47.59.90,,
+91,0.1.3.4.10.21.91,,
+92,0.1.3.4.10.27.38.68.92,,
+93,0.1.3.4.7.12.43.69.93,,
+94,0.1.3.6.20.34.44.82.94,,
+95,0.1.3.6.20.34.44.95,,
+96,0.1.3.4.7.12.28.61.96,,
+97,0.1.5.13.30.45.97,,
+98,0.1.3.6.20.34.44.82.98,,
+99,0.2.14.23.52.74.99,,
+100,0.2.9.16.24.33.58.100,,
+101,0.1.5.11.17.25.35.60.101,,
+102,0.1.3.4.10.21.91.102,,
+103,0.2.14.26.36.77.84.103,,
+104,0.1.3.4.7.12.28.61.96.104,,
+105,0.1.3.6.20.34.44.82.98.105,,
+106,0.1.3.4.7.12.43.69.85.106,,
+107,0.1.3.4.7.12.28.61.83.107,,
+108,0.1.3.4.7.12.43.69.93.108,,
+109,0.1.3.4.7.12.43.69.85.87.109,,
+110,0.1.5.11.17.25.35.62.110,,
+111,0.2.14.23.52.111,,
+112,0.1.3.4.10.21.91.102.112,,
+113,0.1.3.4.7.12.28.51.113,,
+114,0.2.9.16.24.33.48.114,,
+115,0.1.5.11.17.41.65.115,,
+116,0.1.3.4.7.12.28.51.75.116,,
+117,0.2.14.26.36.77.84.103.117,,
+118,0.1.5.13.30.45.97.118,,
+119,0.1.3.4.7.12.43.69.93.108.119,,
+120,0.1.3.4.7.12.43.69.93.120,,
+121,0.1.3.6.20.34.44.95.121,,
+122,0.2.14.23.52.111.122,,
+123,0.1.3.4.10.21.91.102.112.123,,
+124,0.2.9.16.24.33.48.114.124,,
+125,0.1.3.4.10.21.91.102.125,,
+126,0.1.3.6.20.34.44.82.94.126,,
+127,0.1.3.4.7.12.43.69.93.108.127,,
+128,0.1.3.4.10.21.91.102.112.123.128,,
+129,0.1.3.4.10.21.91.South Africa,Islamic,Africa
+130,0.1.3.4.10.27.38.68.92.Vietnam,SouthAsia,Asia
+131,0.2.14.23.52.74.99.Venezuela,LatinAmerica,South America
+132,0.1.3.4.7.15.18.55.Uzbekistan,,Asia
+133,0.1.3.4.10.21.91.102.125.United States,English,North America
+134,0.2.14.23.52.111.122.Uruguay,LatinAmerica,South America
+135,0.1.3.6.20.34.44.82.94.126.Ukraine,Orthodox,Europe
+136,0.1.5.11.17.41.65.115.Taiwan,Confucian,Asia
+137,0.2.14.23.79.Turkey,Islamic,Asia
+138,0.1.3.4.10.27.38.68.92.Tunisia,Islamic,Africa
+139,0.1.3.4.10.27.38.49.64.Trinidad and Tobago,LatinAmerica,North America
+140,0.1.5.11.17.41.65.115.Thailand,SouthAsia,Asia
+141,0.1.3.4.7.15.18.55.Syria,,Asia
+142,0.1.3.4.7.12.43.69.85.106.Sweden,Protestant,Europe
+143,0.1.3.6.20.34.44.82.98.Slovenia,Catholic,Europe
+144,0.2.9.16.24.33.48.114.124.Slovakia,Catholic,Europe
+145,0.1.3.4.7.12.28.61.83.Serbia,Orthodox,Europe
+146,0.2.14.26.47.59.El Salvador,LatinAmerica,North America
+147,0.1.3.4.7.12.43.81.Singapore,SouthAsia,Asia
+148,0.1.5.11.17.25.35.60.101.Saudi Arabia,Islamic,Asia
+149,0.1.3.6.20.34.44.82.94.126.Russia,Orthodox,Europe
+150,0.1.3.4.7.12.28.61.83.107.Romania,Orthodox,Europe
+151,0.2.9.16.32.Reunion,Catholic,Africa
+152,0.1.3.4.10.27.38.49.86.Qatar,Islamic,Asia
+153,0.2.9.16.24.33.58.French Polynesia,,Oceania
+154,0.1.5.13.29.53.71.Palestinian Territory,Islamic,Asia
+155,0.2.14.26.36.77.Paraguay,LatinAmerica,South America
+156,0.1.3.4.7.12.28.51.75.116.Portugal,Catholic,Europe
+157,0.2.14.26.36.77.84.103.Puerto Rico,LatinAmerica,North America
+158,0.1.3.6.20.34.44.82.98.105.Poland,Catholic,Europe
+159,0.2.14.26.47.59.90.Philippines,LatinAmerica,Asia
+160,0.2.14.23.52.111.Peru,LatinAmerica,South America
+161,0.2.14.26.47.59.90.Panama,LatinAmerica,North America
+162,0.1.5.13.29.53.Pakistan,Islamic,Asia
+163,0.1.5.13.30.Oman,,Asia
+164,0.1.3.4.10.21.91.102.112.123.New Zealand,English,Oceania
+165,0.1.5.13.29.66.Nepal,SouthAsia,Asia
+166,0.1.3.4.7.12.43.69.93.108.119.Norway,Protestant,Europe
+167,0.1.3.4.7.12.43.69.93.120.Netherlands,Protestant,Europe
+168,0.1.3.4.10.21.46.78.Nicaragua,,North America
+169,0.1.3.4.7.15.18.31.Nigeria,,Africa
+170,0.2.9.16.32.New Caledonia,Catholic,Oceania
+171,0.1.5.11.17.25.35.62.110.Malaysia,Islamic,Asia
+172,0.1.5.13.30.45.57.73.Mauritius,SouthAsia,Africa
+173,0.2.9.42.50.Martinique,,North America
+174,0.2.9.16.24.56.72.Mongolia,Confucian,Asia
+175,0.1.3.4.7.12.28.51.75.89.Montenegro,Orthodox,Europe
+176,0.1.3.4.7.15.39.Myanmar,,Asia
+177,0.2.9.16.24.56.72.Malta,Catholic,Europe
+178,0.1.5.13.30.45.57.70.Macedonia,Orthodox,Europe
+179,0.2.14.26.36.77.84.103.117.Mexico,LatinAmerica,North America
+180,0.2.9.42.Maldives,,Asia
+181,0.1.3.6.8.Madagascar,,Africa
+182,0.1.3.6.20.34.44.95.121.Moldova,Orthodox,Europe
+183,0.1.3.6.8.19.Monaco,,Europe
+184,0.2.9.16.24.33.58.100.Morocco,Islamic,Africa
+185,0.1.5.11.22.67.Macao,Confucian,Asia
+186,0.1.3.6.20.34.44.82.98.105.Latvia,Baltic,Europe
+187,0.1.3.4.7.12.43.69.85.87.109.Luxembourg,Catholic,Europe
+188,0.1.3.4.10.21.46.78.Lithuania,Baltic,Europe
+189,0.1.3.4.7.12.43.81.Sri Lanka,SouthAsia,Asia
+190,0.1.5.13.30.45.97.118.Lebanon,Islamic,Asia
+191,0.1.5.11.17.25.35.60.101.Kuwait,Islamic,Asia
+192,0.1.5.11.17.41.65.South Korea,Confucian,Asia
+193,0.1.5.11.22.40.Cambodia,SouthAsia,Asia
+194,0.1.3.4.7.15.18.31.63.Kyrgyzstan,,Asia
+195,0.1.3.4.7.15.18.31.63.Kenya,Islamic,Africa
+196,0.1.3.6.20.34.44.95.Kazakhstan,Islamic,Asia
+197,0.1.5.11.22.67.Japan,Confucian,Asia
+198,0.1.5.13.29.53.71.Jordan,Islamic,Asia
+199,0.1.3.4.10.21.46.Jersey,,Europe
+200,0.1.3.4.10.27.38.49.64.Jamaica,LatinAmerica,North America
+201,0.1.3.4.7.12.28.61.96.104.Italy,Catholic,Europe
+202,0.1.3.4.10.27.54.88.Israel,,Asia
+203,0.1.3.4.7.12.43.69.85.87.Iceland,Protestant,Europe
+204,0.1.3.4.10.27.54.88.Iraq,Islamic,Asia
+205,0.1.5.13.29.66.Iran,Islamic,Asia
+206,0.1.3.4.10.21.91.102.112.Ireland,English,Europe
+207,0.1.5.13.30.45.57.73.India,SouthAsia,Asia
+208,0.1.3.4.7.15.39.Isle of Man,,Europe
+209,0.1.5.11.17.25.35.62.110.Indonesia,Islamic,Asia
+210,0.2.9.16.24.33.48.114.124.Hungary,Catholic,Europe
+211,0.1.3.4.7.12.28.61.96.Croatia,Catholic,Europe
+212,0.2.14.26.47.Honduras,LatinAmerica,North America
+213,0.1.5.11.17.25.35.62.Hong Kong,Confucian,Asia
+214,0.1.3.6.8.19.37.Guam,,Oceania
+215,0.2.14.26.36.Guatemala,LatinAmerica,North America
+216,0.1.3.4.7.12.28.51.113.Greece,Orthodox,Europe
+217,0.2.9.16.24.56.Guernsey,,Europe
+218,0.1.3.6.20.34.44.95.121.Georgia,Orthodox,Asia
+219,0.1.3.4.10.21.91.102.112.123.128.United Kingdom,English,Europe
+220,0.2.9.16.24.33.48.76.France,Catholic,Europe
+221,0.1.3.4.7.12.43.69.93.120.Finland,Protestant,Europe
+222,0.1.3.4.7.12.28.61.83.107.Estonia,Baltic,Europe
+223,0.1.3.4.7.12.28.51.75.116.Spain,Catholic,Europe
+224,0.1.5.13.30.45.97.118.Egypt,Islamic,Africa
+225,0.2.14.23.52.74.80.Ecuador,LatinAmerica,South America
+226,0.2.9.16.24.33.58.100.Algeria,Islamic,Africa
+227,0.2.9.16.24.33.48.76.Dominican Republic,LatinAmerica,North America
+228,0.1.3.4.7.12.43.69.93.108.119.Denmark,Protestant,Europe
+229,0.1.3.4.7.12.43.69.93.108.127.Germany,Protestant,Europe
+230,0.2.9.16.24.33.48.114.Czechia,Catholic,Europe
+231,0.1.3.4.7.12.43.69.85.106.Cyprus,Orthodox,Europe
+232,0.2.14.26.36.77.84.103.117.Costa Rica,LatinAmerica,North America
+233,0.2.14.23.52.74.99.Colombia,LatinAmerica,South America
+234,0.1.5.11.17.41.China,Confucian,Asia
+235,0.2.14.26.36.77.84.Chile,LatinAmerica,South America
+236,0.1.3.4.7.12.43.69.93.108.127.Switzerland,Protestant,Europe
+237,0.1.3.4.10.21.91.102.125.Canada,English,North America
+238,0.1.5.11.17.25.Brunei,,Asia
+239,0.1.3.4.10.27.38.68.Barbados,,North America
+240,0.1.3.6.8.19.37.Brazil,LatinAmerica,South America
+241,0.2.14.23.52.74.80.Bolivia,LatinAmerica,South America
+242,0.1.3.6.20.34.44.82.94.Belarus,Orthodox,Europe
+243,0.1.3.4.7.12.28.51.113.Bosnia and Herzegovina,Orthodox,Europe
+244,0.2.9.42.50.Bahamas,,North America
+245,0.1.5.11.17.25.35.60.Bahrain,,Asia
+246,0.1.3.4.7.12.28.61.96.104.Bulgaria,Orthodox,Europe
+247,0.1.3.4.10.27.54.Bangladesh,Islamic,Asia
+248,0.1.3.4.7.12.28.51.75.89.Belgium,Catholic,Europe
+249,0.2.14.23.79.Azerbaijan,Islamic,Asia
+250,0.1.3.4.7.12.43.69.85.87.109.Austria,Catholic,Europe
+251,0.1.3.4.10.21.91.102.112.123.128.Australia,English,Oceania
+252,0.1.5.13.30.45.57.70.Armenia,Orthodox,Asia
+253,0.2.14.23.52.111.122.Argentina,LatinAmerica,South America
+254,0.1.5.13.30.45.97.United Arab Emirates,Islamic,Asia
+255,0.1.5.11.22.40.Andorra,,Europe
+256,0.1.3.4.10.27.38.49.86.Albania,Orthodox,Europe
+257,0.1.3.6.20.Angola,,Africa
+258,0.1.3.6.20.34.Afghanistan,,Asia
