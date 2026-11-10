@@ -12,6 +12,7 @@ import json
 import math
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import requests
@@ -106,42 +107,49 @@ def done_keys(path):
     return {json.loads(line)["key"] for line in open(path)}
 
 
-def run_revealed(model, scenarios, out, persona):
+def _revealed_row(model, s, order, prefix, persona, wording="original"):
+    first, second = (s.a, s.b) if order == 0 else (s.b, s.a)
+    prompt = prefix + REVEALED.format(c1=describe_outcome(first, wording), c2=describe_outcome(second, wording))
+    text = ask(model, prompt, 0.0, 40, 0)
+    case = parse_case(text)
+    p1, mass = forced_choice(model, prompt)
+    # Choosing a case kills the group it describes. Case 1 is side a in order 0, side b in order 1.
+    p_spare_a = None if p1 is None else (1 - p1 if order == 0 else p1)
+    return {"key": f"{s.sid}|{order}", "model": model, "persona": persona, "sid": s.sid, "order": order,
+            "response": text, "case": case,
+            "free_spared": None if case is None else ("b" if (case == 1) == (order == 0) else "a"),
+            "p_case1": p1, "digit_mass": mass, "p_spare_a": p_spare_a}
+
+
+def run_revealed(model, scenarios, out, persona, workers, wording="original"):
     seen = done_keys(out)
     prefix = f"Answer as a typical person from {persona} would.\n\n" if persona else ""
-    with open(out, "a") as f:
-        for s in scenarios:
-            for order in (0, 1):
-                key = f"{s.sid}|{order}"
-                if key in seen:
-                    continue
-                first, second = (s.a, s.b) if order == 0 else (s.b, s.a)
-                prompt = prefix + REVEALED.format(c1=describe_outcome(first), c2=describe_outcome(second))
-                text = ask(model, prompt, 0.0, 40, 0)
-                case = parse_case(text)
-                p1, mass = forced_choice(model, prompt)
-                # Choosing a case kills the group it describes. Case 1 is side a in order 0, side b in order 1.
-                p_spare_a = None if p1 is None else (1 - p1 if order == 0 else p1)
-                f.write(json.dumps({"key": key, "model": model, "persona": persona, "sid": s.sid, "order": order,
-                                    "response": text, "case": case,
-                                    "free_spared": None if case is None else
-                                    ("b" if (case == 1) == (order == 0) else "a"),
-                                    "p_case1": p1, "digit_mass": mass, "p_spare_a": p_spare_a}) + "\n")
-                f.flush()
+    jobs = [(s, o) for s in scenarios for o in (0, 1) if f"{s.sid}|{o}" not in seen]
+    with open(out, "a") as f, ThreadPoolExecutor(workers) as pool:
+        for row in pool.map(lambda j: _revealed_row(model, j[0], j[1], prefix, persona, wording), jobs):
+            f.write(json.dumps(row) + "\n")
+            f.flush()
 
 
 def run_stated(model, out, samples):
+    """Each question is also asked with the two groups swapped ("flip"); the sign of the answer is reversed when
+    stored, so a model with a real view gives the same value both ways and a fixed number habit cancels on average."""
     seen = done_keys(out)
+    suffix = " /no_think" if model.startswith("qwen3") else ""
     with open(out, "a") as f:
         for frame, tmpl in STATED.items():
-            for attr, (x, y) in ATTRIBUTES.items():
-                for i in range(samples):
-                    key = f"{frame}|{attr}|{i}"
-                    if key in seen:
-                        continue
-                    text = ask(model, tmpl.format(x=x, y=y), 0.7, 12, i)
-                    f.write(json.dumps({"key": key, "model": model, "frame": frame, "attribute": attr, "sample": i,
-                                        "response": text, "value": parse_number(text)}) + "\n")
+            for flip in (False, True):
+                for attr, (x, y) in ATTRIBUTES.items():
+                    for i in range(samples):
+                        key = f"{frame}{'|flip' if flip else ''}|{attr}|{i}"
+                        if key in seen:
+                            continue
+                        q = tmpl.format(x=y, y=x) if flip else tmpl.format(x=x, y=y)
+                        text = ask(model, q + suffix, 0.7, 12, i)
+                        v = parse_number(text)
+                        f.write(json.dumps({"key": key, "model": model, "frame": frame, "flip": flip,
+                                            "attribute": attr, "sample": i, "response": text,
+                                            "value": None if v is None else (-v if flip else v)}) + "\n")
                     f.flush()
 
 
@@ -152,16 +160,22 @@ def main():
     p.add_argument("--scenarios", default="data/scenarios.jsonl")
     p.add_argument("--limit", type=int, default=None, help="first N scenarios only (pilot)")
     p.add_argument("--samples", type=int, default=10)
+    p.add_argument("--workers", type=int, default=4)
+    p.add_argument("--wording", choices=["original", "neutral"], default="original")
+    p.add_argument("--only-law", action="store_true", help="only scenarios with a legality contrast")
     p.add_argument("--persona", default=None, help="e.g. Japan; adds a country persona to revealed prompts")
     a = p.parse_args()
     scenarios = from_json(a.scenarios)[: a.limit]
+    if a.only_law:
+        scenarios = [s for s in scenarios if s.pedped and s.a.signal]
     raw = Path("results/raw")
     raw.mkdir(parents=True, exist_ok=True)
     for m in a.models:
-        tag = m.replace(":", "_") + (f"__{a.persona.replace(' ', '_')}" if a.persona else "")
+        tag = m.replace(":", "_") + (f"__{a.persona.replace(' ', '_')}" if a.persona else "") + \
+            ("__neutral" if a.wording == "neutral" else "")
         if a.arm in ("revealed", "both"):
             t = time.time()
-            run_revealed(m, scenarios, raw / f"revealed__{tag}.jsonl", a.persona)
+            run_revealed(m, scenarios, raw / f"revealed__{tag}.jsonl", a.persona, a.workers, a.wording)
             print(f"{m} revealed done in {time.time() - t:.0f}s", flush=True)
         if a.arm in ("stated", "both") and not a.persona:
             run_stated(m, raw / f"stated__{m.replace(':', '_')}.jsonl", a.samples)

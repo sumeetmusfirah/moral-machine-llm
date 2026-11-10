@@ -126,7 +126,16 @@ def describe_group(chars):
     return parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + " and " + parts[-1]
 
 
-def describe_outcome(side):
+LAW_WORDING = {
+    "original": {1: " These pedestrians are abiding by the law by crossing on the green signal.",
+                 2: " These pedestrians are flouting the law by crossing on the red signal."},
+    # Robustness check: same facts, no moral vocabulary.
+    "neutral": {1: " These pedestrians are crossing on a green light.",
+                2: " These pedestrians are crossing against a red light."},
+}
+
+
+def describe_outcome(side, wording="original"):
     who = describe_group(side.chars)
     if side.passengers:
         where = ("continue ahead and crash into a concrete barrier" if side.dies_if == "stay"
@@ -134,8 +143,7 @@ def describe_outcome(side):
         return f"The car will {where}. This will result in the death of its passengers: {who}."
     where = ("continue ahead and drive through a pedestrian crossing ahead" if side.dies_if == "stay"
              else "swerve and drive through a pedestrian crossing in the other lane")
-    law = {0: "", 1: " These pedestrians are abiding by the law by crossing on the green signal.",
-           2: " These pedestrians are flouting the law by crossing on the red signal."}[side.signal]
+    law = "" if side.signal == 0 else LAW_WORDING[wording][side.signal]
     return f"The car will {where}. This will result in the death of the pedestrians: {who}.{law}"
 
 

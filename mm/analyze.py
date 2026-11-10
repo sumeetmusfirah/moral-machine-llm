@@ -36,6 +36,7 @@ COUNTRY_COLS = {"Intervention": "[Omission -> Commission]: Estimates",
                 "No. Characters": "No. Characters [Less -> More]: Estimates",
                 "Species": "Species [Pets -> Humans]: Estimates"}
 EPS = 1e-6
+REFUSAL = r"can't|cannot|can not|won't|unable|not able|I'm sorry|not appropriate|don't have personal|no right answer|doesn't have a"
 
 
 def logit(p):
@@ -68,9 +69,11 @@ def scenario_rows(scenarios, revealed):
         l0 = logit(g.loc[g.order == 0, "p_case1"].iloc[0])
         l1 = logit(g.loc[g.order == 1, "p_case1"].iloc[0])
         free = g.set_index("order")["free_spared"]
+        refused = g["response"].fillna("").str.contains(REFUSAL, case=False, regex=True) & g["case"].isna()
         rows.append({"model": model, "persona": persona, "sid": sid, "stype": by[sid].stype,
                      "delta": (l1 - l0) / 2, "beta": (l0 + l1) / 2, "p_spare_a": 1 / (1 + np.exp(-(l1 - l0) / 2)),
-                     "refused_any": free.isna().any(),
+                     "refused_any": bool(refused.any()),
+                     "no_answer_any": free.isna().any(),
                      "free_consistent": (not free.isna().any()) and free[0] == free[1]})
     return pd.DataFrame(rows)
 
@@ -105,8 +108,9 @@ def effects(scen, by):
 def main():
     scenarios = from_json("data/scenarios.jsonl")
     by = {s.sid: s for s in scenarios}
-    rev = pd.concat([pd.read_json(f, lines=True) for f in RAW.glob("revealed__*.jsonl")], ignore_index=True)
-    rev["persona"] = rev["persona"].fillna("none")
+    files = [f for f in RAW.glob("revealed__*.jsonl") if not f.stem.endswith("__neutral")]
+    rev = pd.concat([pd.read_json(f, lines=True) for f in files], ignore_index=True)
+    rev["persona"] = rev["persona"].astype(object).fillna("none")
     scen = scenario_rows(scenarios, rev)
     hg, hc = human_global(), human_countries()
 
@@ -120,7 +124,8 @@ def main():
         nearest = hc.index[np.argsort(dist)[:3]].tolist()
         summary.append({"model": model, "persona": persona, "scenarios": len(g),
                         "refusal_rate_free": g.refused_any.mean(),
-                        "free_answer_order_consistency": g.loc[~g.refused_any, "free_consistent"].mean(),
+                        "no_clear_answer_rate_free": g.no_answer_any.mean(),
+                        "free_answer_order_consistency": g.loc[~g.no_answer_any, "free_consistent"].mean(),
                         "mean_abs_position_bias_logit": g.beta.abs().mean(),
                         "distance_to_global_humans": float(np.sqrt(((mv - np.array([hg[a] for a in ATTRS])) ** 2).sum())),
                         "nearest_countries": ",".join(nearest),
@@ -131,6 +136,14 @@ def main():
     stated_files = list(RAW.glob("stated__*.jsonl"))
     if stated_files:
         st = pd.concat([pd.read_json(f, lines=True) for f in stated_files], ignore_index=True)
+        st["flip"] = st.get("flip", False)
+        st["flip"] = st["flip"].astype(object).fillna(False).astype(bool)
+        # Report the number habit: mean answer to the original minus mean to the swapped wording, halved, is the
+        # content-driven part; their average (before the sign flip) is the habit.
+        st.groupby(["model", "frame", "flip"])["value"].mean().unstack().div(100).round(2).to_csv(OUT / "stated_flip_check.csv")
+        # A stated value counts only when both wordings exist for that model x frame (balanced design).
+        has_flip = st.groupby(["model", "frame"])["flip"].transform(lambda f: f.any() and (~f).any())
+        st = st[has_flip]
         agg = (st.groupby(["model", "frame", "attribute"])
                .agg(stated=("value", lambda v: v.dropna().mean() / 100), stated_sd=("value", lambda v: v.dropna().std() / 100),
                     stated_parsed=("value", lambda v: v.notna().mean())).reset_index())
@@ -150,6 +163,21 @@ def main():
         summary = sm
     else:
         summary = pd.DataFrame(summary)
+
+    neutral = list(RAW.glob("revealed__*__neutral.jsonl"))
+    if neutral:
+        nrev = pd.concat([pd.read_json(f, lines=True) for f in neutral], ignore_index=True)
+        nrev["persona"] = nrev["persona"].astype(object).fillna("none")
+        nscen = scenario_rows(scenarios, nrev)
+        law = []
+        for model, g in nscen.groupby("model"):
+            e = effects(g, by)["Law"]
+            orig = eff[(eff.model == model) & (eff.attribute == "Law") & (eff.persona == "none")].iloc[0]
+            law.append({"model": model, "law_original": orig.effect, "law_neutral": e["effect"],
+                        "neutral_lo": e["lo"], "neutral_hi": e["hi"], "n": e["n"], "human": hg["Law"]})
+        law = pd.DataFrame(law)
+        law.to_csv(OUT / "law_wording_check.csv", index=False)
+        print(law.round(2).to_string(index=False))
 
     eff.to_csv(OUT / "effects.csv", index=False)
     summary.to_csv(OUT / "summary.csv", index=False)
