@@ -1,0 +1,9 @@
+model,frame,False,True
+gemma3:4b,should,0.46,
+gemma3:4b,would,0.61,
+llama3.2:3b,should,0.14,
+llama3.2:3b,would,0.0,
+mistral:7b,should,0.0,0.02
+mistral:7b,would,-0.09,0.31
+phi4-mini:3.8b,should,-0.4,
+phi4-mini:3.8b,would,-0.49,

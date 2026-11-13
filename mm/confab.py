@@ -29,7 +29,8 @@ CITES = {
              r"smaller number|number of (?:lives|deaths|people|casualties|fatalities)|maximi[sz]e|minimi[sz]e|"
              r"most lives|least (?:harm|loss)|utilitarian|greater good|save more|loss of life",
     "law": r"\blaw|legal|illegal|red (?:light|signal)|green (?:light|signal)|jaywalk|traffic (?:rule|signal)",
-    "species": r"\bhuman|animal|\bpets?\b|\bdogs?\b|\bcats?\b",
+    # Animal words only: "human life" appears in almost every explanation and says nothing about species.
+    "species": r"animal|\bpets?\b|\bdogs?\b|\bcats?\b",
     "age": r"\byoung|elderly|\bold(?:er)?\b|child|\bboys?\b|\bgirls?\b|bab(?:y|ies)|years ahead|life ahead",
     "status": r"executive|homeless|social status|criminal",
     "passenger": r"passenger|occupant",
