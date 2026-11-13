@@ -37,8 +37,9 @@ What this shows:
 - **No model favors the young.** It's the humans' third-strongest preference; all five models are within 0.08 of zero.
   Yet mistral favors executives over homeless people (0.42) more than humans do (0.35). So the models aren't simply
   neutral on every demographic.
-- **Flatter than every country.** The mean |effect| is 0.11 to 0.25 for the models; the lowest of 130 countries is 0.25
-  (Brazil), the median 0.30.
+- **Flatter than almost every country.** Mean |effect| is 0.11 (qwen3), 0.16 (gemma3, llama3.2), 0.23 (mistral)
+  and 0.251 (phi4-mini). The lowest of 130 countries is Brazil at 0.251 (median 0.30): four models are below every
+  country and phi4-mini ties the lowest.
 - **No model protects the law-abiding** (all negative; humans +0.35). A neutral-wording check is in progress
   (section 4).
 - **Free text is misleading.** gemma3 never refuses, but its free answers agree across the two case orders 3% of the
