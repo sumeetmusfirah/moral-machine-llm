@@ -1,4 +1,22 @@
 model,frame,attribute,stated,stated_sd,stated_parsed
+gemma3:4b,should,Age,0.35,0.3531810330485814,1.0
+gemma3:4b,should,Fitness,0.36,0.29629288497061573,1.0
+gemma3:4b,should,Gender,0.085,0.03663475485325232,1.0
+gemma3:4b,should,Intervention,-0.055,0.37623480910057666,1.0
+gemma3:4b,should,Law,0.01,0.760816735661853,1.0
+gemma3:4b,should,No. Characters,0.24,0.5374403271649402,1.0
+gemma3:4b,should,Relation to AV,0.44,0.392562432178494,1.0
+gemma3:4b,should,Social Status,-0.045,0.2564432839727663,1.0
+gemma3:4b,should,Species,0.35,0.4784844495080824,1.0
+gemma3:4b,would,Age,0.505,0.23502519461807314,1.0
+gemma3:4b,would,Fitness,0.445,0.25230516193063135,1.0
+gemma3:4b,would,Gender,0.1875,0.15378984293338,1.0
+gemma3:4b,would,Intervention,-0.01,0.81104221448961,1.0
+gemma3:4b,would,Law,0.005,0.8261992877979832,1.0
+gemma3:4b,would,No. Characters,0.33,0.4932171508521747,1.0
+gemma3:4b,would,Relation to AV,0.055,0.8672248539844907,1.0
+gemma3:4b,would,Social Status,0.0475,0.3274603230284468,1.0
+gemma3:4b,would,Species,0.085,0.8368330022676033,1.0
 llama3.2:3b,should,Age,,,0.0
 llama3.2:3b,should,Fitness,0.0,0.0,0.1
 llama3.2:3b,should,Gender,,,0.0
@@ -35,3 +53,39 @@ mistral:7b,would,No. Characters,0.05526315789473684,0.5241116125942453,0.95
 mistral:7b,would,Relation to AV,0.2882352941176471,0.83264064348101,0.85
 mistral:7b,would,Social Status,0.0,0.0,1.0
 mistral:7b,would,Species,0.3131578947368421,0.8041286010443502,0.95
+phi4-mini:3.8b,should,Age,-0.03333333333333333,0.5498917642417936,0.75
+phi4-mini:3.8b,should,Fitness,0.0,0.4537426064865151,0.9
+phi4-mini:3.8b,should,Gender,0.0,0.48507125007266594,0.9
+phi4-mini:3.8b,should,Intervention,0.0,0.5,0.95
+phi4-mini:3.8b,should,Law,0.03125,0.4989572459974234,0.8
+phi4-mini:3.8b,should,No. Characters,0.06111111111111111,0.5112141129517511,0.9
+phi4-mini:3.8b,should,Relation to AV,-0.15625,0.6511208285205852,0.8
+phi4-mini:3.8b,should,Social Status,-0.125,0.62565754884046,1.0
+phi4-mini:3.8b,should,Species,0.13157894736842105,0.5972647203701473,0.95
+phi4-mini:3.8b,would,Age,0.0,0.7302967433402214,0.8
+phi4-mini:3.8b,would,Fitness,0.0,0.7319250547113998,0.75
+phi4-mini:3.8b,would,Gender,0.0,0.3922322702763681,0.7
+phi4-mini:3.8b,would,Intervention,0.0,0.483045891539648,0.8
+phi4-mini:3.8b,would,Law,0.125,0.6454972243679029,0.8
+phi4-mini:3.8b,would,No. Characters,0.1111111111111111,0.8144929053162204,0.9
+phi4-mini:3.8b,would,Relation to AV,0.0,0.8237544710479139,0.75
+phi4-mini:3.8b,would,Social Status,-0.39285714285714285,0.5608568797478011,0.7
+phi4-mini:3.8b,would,Species,0.1111111111111111,0.7583952786593615,0.9
+qwen3:4b,should,Age,,,0.0
+qwen3:4b,should,Fitness,,,0.0
+qwen3:4b,should,Gender,,,0.0
+qwen3:4b,should,Intervention,,,0.0
+qwen3:4b,should,Law,,,0.0
+qwen3:4b,should,No. Characters,,,0.0
+qwen3:4b,should,Relation to AV,,,0.0
+qwen3:4b,should,Social Status,,,0.0
+qwen3:4b,should,Species,,,0.0
+qwen3:4b,would,Age,,,0.0
+qwen3:4b,would,Fitness,,,0.0
+qwen3:4b,would,Gender,,,0.0
+qwen3:4b,would,Intervention,,,0.0
+qwen3:4b,would,Law,,,0.0
+qwen3:4b,would,No. Characters,,,0.0
+qwen3:4b,would,Relation to AV,,,0.0
+qwen3:4b,would,Social Status,,,0.0
+qwen3:4b,would,Species,,,0.0

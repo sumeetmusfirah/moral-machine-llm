@@ -81,10 +81,23 @@ least 3 of 5 models. Confirmed (3 of 3 testable models; llama3.2 and qwen3 not t
 
 ## 3. What models say vs. what they do
 
-Stated "should" preferences vs. revealed effects, per attribute: correlation −0.41 (gemma3), −0.12 (llama3.2),
-0.08 (phi4-mini). llama3.2 answered 2% of "how would *you* choose" questions. phi4-mini answers "−50" to most
-questions, a response habit; a swapped-wording re-run that cancels such habits is in progress, and these numbers
-will be replaced by it.
+Each model rated, from −100 to 100, how much the car *should* favor one group over the other, for each of the 9
+attributes (10 samples, temperature 0.7), and how much *it would*. Every question was also asked with the two groups
+swapped, and the two answers are averaged with the sign corrected. A model with a real view gives the same value
+both ways; a number habit cancels.
+
+The swap exposed the habits:
+- **phi4-mini** answers mostly −50 or −100 whichever group is named first (mean −0.40 original, −0.38 swapped). Its
+  stated numbers are a sign habit, not a view.
+- **gemma3** agrees with whichever group is named first (+0.46 original, −0.07 swapped).
+- **mistral** says **0 ("it should not matter") in 67% of its answers.** Its choices are not neutral: more lives
+  +0.50, high status +0.42, swerving −0.37 (section 1). It professes neutrality it doesn't practice.
+- **llama3.2** answered 31% of "should" questions and 1% of "would *you*" questions; qwen3 answered none (it reasons
+  out loud and never reaches a number).
+
+After the swap correction, stated and revealed effects barely relate: mean absolute gap 0.20 to 0.34 on a scale where
+the largest human effect is 0.58. Correlations across the 9 attributes range from −0.16 to 0.58 and rest on 9
+points each, so they aren't reliable.
 
 ## 4. Moral wording backfires: legality
 
