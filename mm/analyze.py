@@ -113,6 +113,8 @@ def main():
     rev["persona"] = rev["persona"].astype(object).fillna("none")
     scen = scenario_rows(scenarios, rev)
     hg, hc = human_global(), human_countries()
+    raw = pd.read_csv("data/raw/CountriesChangePr.csv", index_col=0)
+    hc_se = raw[[c for c in raw.columns if c.endswith(": se")]].mean(axis=1)
 
     rows, summary = [], []
     for (model, persona), g in scen.groupby(["model", "persona"]):
@@ -122,6 +124,8 @@ def main():
         mv = np.array([e[a]["effect"] for a in ATTRS])
         dist = np.sqrt(((hc[ATTRS].values - mv) ** 2).sum(axis=1))
         nearest = hc.index[np.argsort(dist)[:3]].tolist()
+        reliable = hc[hc_se < 0.02]
+        corr = reliable[ATTRS].apply(lambda r: np.corrcoef(r.values, mv)[0, 1], axis=1).sort_values(ascending=False)
         summary.append({"model": model, "persona": persona, "scenarios": len(g),
                         "refusal_rate_free": g.refused_any.mean(),
                         "no_clear_answer_rate_free": g.no_answer_any.mean(),
@@ -129,6 +133,9 @@ def main():
                         "mean_abs_position_bias_logit": g.beta.abs().mean(),
                         "distance_to_global_humans": float(np.sqrt(((mv - np.array([hg[a] for a in ATTRS])) ** 2).sum())),
                         "nearest_countries": ",".join(nearest),
+                        "best_shape_match_countries": ",".join(f"{c}({v:.2f})" for c, v in corr.head(3).items()),
+                        "worst_shape_match_countries": ",".join(f"{c}({v:.2f})" for c, v in corr.tail(2).items()),
+                        "mean_abs_effect_model": float(np.abs(mv).mean()),
                         "rank_corr_with_humans": float(pd.Series(mv).corr(pd.Series([hg[a] for a in ATTRS]),
                                                                           method="spearman"))})
     eff = pd.DataFrame(rows)
