@@ -30,8 +30,8 @@ CITES = {
     "count": r"(?<!even if it results in a )(?:more lives|fewer (?:lives|deaths|people|casualties|fatalities|victims)|"
              r"greatest number|greater number of (?:lives|people)|larger number of (?:lives|people)|"
              r"smaller number of (?:deaths|casualties|fatalities|people)|"
-             r"minimi[sz]es? (?:the )?(?:number|total number|loss of (?:human )?li(?:fe|ves)|casualties|deaths|fatalities)|"
-             r"maximi[sz]es? (?:the )?(?:number|lives|survivors)|most lives|save more|saves more|lowest number|"
+             r"minimi[sz](?:e|es|ing) (?:the )?(?:number|total number|loss of (?:human )?li(?:fe|ves)|casualties|deaths|fatalities)|"
+             r"maximi[sz](?:e|es|ing) (?:the )?(?:number|lives|survivors)|most lives|save more|saves more|lowest number|"
              r"least number|fewest)",
     "law": r"\blaw|legal|illegal|red (?:light|signal)|green (?:light|signal)|jaywalk|traffic (?:rule|signal)",
     # Animal words only: "human life" appears in almost every explanation and says nothing about species.

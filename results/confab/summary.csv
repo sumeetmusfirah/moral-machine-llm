@@ -1,5 +1,5 @@
 model,answered,cites numbers,"numbers, but groups equal","numbers, but killed more","law, no signal","animals, none present",any confabulation
-gemma3:4b,100/100,37/100 (37%),24/37,5/37,0/42,0/11,29/100 (29%)
-llama3.2:3b,17/100,3/17 (18%),3/3,0/3,0/11,n/a,3/17 (18%)
+gemma3:4b,100/100,68/100 (68%),46/68,9/68,0/42,0/11,55/100 (55%)
+llama3.2:3b,17/100,4/17 (24%),4/4,0/4,0/11,n/a,4/17 (24%)
 mistral:7b,99/100,65/99 (66%),47/65,9/65,0/37,0/11,56/99 (57%)
 phi4-mini:3.8b,100/100,55/100 (55%),37/55,5/55,0/40,0/12,42/100 (42%)
