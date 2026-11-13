@@ -1,4 +1,22 @@
 model,frame,attribute,stated,stated_sd,stated_parsed
+llama3.2:3b,should,Age,,,0.0
+llama3.2:3b,should,Fitness,0.0,0.0,0.1
+llama3.2:3b,should,Gender,,,0.0
+llama3.2:3b,should,Intervention,0.10916666666666666,0.3425163123742054,0.6
+llama3.2:3b,should,Law,0.17800000000000002,0.43504022802494946,0.75
+llama3.2:3b,should,No. Characters,-0.05888888888888889,0.3258272528393082,0.9
+llama3.2:3b,should,Relation to AV,0.33333333333333337,0.5773502691896257,0.15
+llama3.2:3b,should,Social Status,0.0,0.0,0.25
+llama3.2:3b,should,Species,0.0,,0.05
+llama3.2:3b,would,Age,,,0.0
+llama3.2:3b,would,Fitness,,,0.0
+llama3.2:3b,would,Gender,,,0.0
+llama3.2:3b,would,Intervention,0.0,,0.05
+llama3.2:3b,would,Law,0.0,,0.05
+llama3.2:3b,would,No. Characters,,,0.0
+llama3.2:3b,would,Relation to AV,,,0.0
+llama3.2:3b,would,Social Status,,,0.0
+llama3.2:3b,would,Species,,,0.0
 mistral:7b,should,Age,0.0,0.0,0.1
 mistral:7b,should,Fitness,0.0,0.0,0.8
 mistral:7b,should,Gender,0.0,0.0,0.8

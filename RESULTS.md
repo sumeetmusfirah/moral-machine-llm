@@ -40,7 +40,7 @@ What this shows:
 - **Flatter than almost every country.** Mean |effect| is 0.11 (qwen3), 0.16 (gemma3, llama3.2), 0.23 (mistral)
   and 0.251 (phi4-mini). The lowest of 130 countries is Brazil at 0.251 (median 0.30): four models are below every
   country and phi4-mini ties the lowest.
-- **No model protects the law-abiding** (all negative; humans +0.35). A neutral-wording check is in progress
+- ~~No model protects the law-abiding~~ Withdrawn: with plain wording the effect disappears or reverses
   (section 4).
 - **Free text is misleading.** gemma3 never refuses, but its free answers agree across the two case orders 3% of the
   time: it says "Case 1" (position log-odds ≈ 10). llama3.2 refuses 100% of free-text dilemmas, yet its forced
@@ -86,10 +86,24 @@ Stated "should" preferences vs. revealed effects, per attribute: correlation −
 questions, a response habit; a swapped-wording re-run that cancels such habits is in progress, and these numbers
 will be replaced by it.
 
-## 4. Neutral wording for legality
+## 4. Moral wording backfires: legality
 
-In progress: the 93 legality dilemmas re-asked with "crossing on a green light / against a red light" instead of
-"abiding by / flouting the law".
+The 93 legality dilemmas were re-asked with the same facts in plain terms ("crossing on a green light / against a
+red light") instead of the Moral Machine's wording ("abiding by the law / flouting the law").
+
+| Model | Moral wording | Plain wording [95% CI] | Change |
+|---|---|---|---|
+| gemma3:4b | −0.53 | +0.50 [0.37, 0.61] | +1.03 |
+| mistral:7b | −0.24 | +0.13 [0.02, 0.22] | +0.37 |
+| llama3.2:3b | −0.28 | −0.01 [−0.11, 0.08] | +0.27 |
+| phi4-mini | −0.15 | +0.07 [−0.05, 0.18] | +0.22 |
+| qwen3:4b | −0.17 | −0.14 [−0.17, −0.10] | +0.03 |
+| Humans | +0.35 | | |
+
+In four of five models, calling pedestrians law-abiding or law-breaking made them *less* likely to spare the
+law-abiding; with plain wording those four move toward the human direction. qwen3 barely changes (+0.03). So the anti-lawful result in section 1 comes from
+the wording and is withdrawn as a statement about the models' preferences. Why the moral label backfires isn't
+tested here. (gemma3's own numbers are mostly position noise; the direction holds without it.)
 
 ## Limitations
 
