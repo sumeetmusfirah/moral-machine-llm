@@ -122,7 +122,7 @@ tested here. (gemma3's own numbers are mostly position noise; the direction hold
 
 Full write-up: `results/introspection/RESULTS.md`. Each model predicted, in a fresh context, whether it would answer
 Case 1 or Case 2, and predicted the other four models. Every model predicts itself better than the others do on
-average (+10 to +61 points), but only because its prediction shares its own "Case 1" or "Case 2" habit: no model
+average (+10 to +61 points), but only because its prediction shares its own "Case 1" or "Case 2" habit: no model clearly
 beats the trivial rule "always say this model's usual case", and the best single other model matches or beats self
 for three of five. On dilemmas where the choice depends on content, llama3.2 and mistral are at chance (51%, 50%)
 predicting themselves. phi4-mini reaches 86% by solving the dilemma inside the prediction prompt, and gives the
