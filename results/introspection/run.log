@@ -1,0 +1,180 @@
+12:35 mistral:7b: 1160 left
+12:36 gemma3:4b: 1160 left
+12:37 gemma3:4b: 1120 left
+12:38 gemma3:4b: 1080 left
+12:39 gemma3:4b: 1040 left
+12:40 gemma3:4b: 1000 left
+12:41 gemma3:4b: 960 left
+12:42 gemma3:4b: 920 left
+12:43 gemma3:4b: 880 left
+12:44 gemma3:4b: 840 left
+12:46 gemma3:4b: 800 left
+12:47 gemma3:4b: 760 left
+12:48 gemma3:4b: 720 left
+12:49 gemma3:4b: 680 left
+12:50 gemma3:4b: 640 left
+12:51 gemma3:4b: 600 left
+12:52 gemma3:4b: 560 left
+12:54 gemma3:4b: 520 left
+12:55 gemma3:4b: 480 left
+12:56 gemma3:4b: 440 left
+12:57 gemma3:4b: 400 left
+12:58 gemma3:4b: 360 left
+12:59 gemma3:4b: 320 left
+13:01 gemma3:4b: 280 left
+13:51 gemma3:4b: 240 left
+15:05 gemma3:4b: 163 left
+15:09 gemma3:4b: 123 left
+15:14 gemma3:4b: 83 left
+15:24 gemma3:4b: 43 left
+15:33 gemma3:4b: 3 left
+15:34 gemma3:4b: 0 left
+waiting: ['gemma3:4b'] loaded
+waiting: ['gemma3:4b'] loaded
+waiting: ['gemma3:4b'] loaded
+waiting: ['gemma3:4b'] loaded
+waiting: ['gemma3:4b'] loaded
+waiting: ['gemma3:4b'] loaded
+waiting: ['gemma3:4b'] loaded
+15:42 llama3.2:3b: 1160 left
+15:42 llama3.2:3b: 1120 left
+15:43 llama3.2:3b: 1080 left
+15:44 llama3.2:3b: 1040 left
+15:44 llama3.2:3b: 1000 left
+15:45 llama3.2:3b: 960 left
+15:45 llama3.2:3b: 920 left
+15:46 llama3.2:3b: 880 left
+15:46 llama3.2:3b: 840 left
+15:47 llama3.2:3b: 800 left
+15:48 llama3.2:3b: 760 left
+15:48 llama3.2:3b: 720 left
+15:49 llama3.2:3b: 680 left
+15:49 llama3.2:3b: 640 left
+15:50 llama3.2:3b: 600 left
+15:50 llama3.2:3b: 560 left
+15:51 llama3.2:3b: 520 left
+15:52 llama3.2:3b: 480 left
+15:52 llama3.2:3b: 440 left
+15:53 llama3.2:3b: 400 left
+15:53 llama3.2:3b: 360 left
+15:54 llama3.2:3b: 320 left
+15:55 llama3.2:3b: 280 left
+15:56 llama3.2:3b: 240 left
+15:57 llama3.2:3b: 200 left
+15:58 llama3.2:3b: 160 left
+16:00 llama3.2:3b: 120 left
+16:01 llama3.2:3b: 80 left
+16:02 llama3.2:3b: 40 left
+16:03 llama3.2:3b: 0 left
+waiting: ['llama3.2:3b'] loaded
+waiting: ['llama3.2:3b'] loaded
+16:06 phi4-mini:3.8b: 1160 left
+16:07 phi4-mini:3.8b: 1120 left
+16:08 phi4-mini:3.8b: 1080 left
+16:09 phi4-mini:3.8b: 1040 left
+16:10 phi4-mini:3.8b: 1000 left
+16:11 phi4-mini:3.8b: 960 left
+16:12 phi4-mini:3.8b: 920 left
+16:13 phi4-mini:3.8b: 880 left
+16:14 qwen3:4b: 1160 left
+16:15 qwen3:4b: 1120 left
+16:16 qwen3:4b: 1080 left
+16:18 qwen3:4b: 1040 left
+16:19 qwen3:4b: 1000 left
+16:20 qwen3:4b: 960 left
+16:21 qwen3:4b: 920 left
+16:22 qwen3:4b: 880 left
+16:24 qwen3:4b: 840 left
+16:25 qwen3:4b: 800 left
+16:26 qwen3:4b: 760 left
+16:27 qwen3:4b: 720 left
+16:29 qwen3:4b: 680 left
+16:30 qwen3:4b: 640 left
+16:31 qwen3:4b: 600 left
+16:32 qwen3:4b: 560 left
+16:33 qwen3:4b: 520 left
+16:35 qwen3:4b: 480 left
+16:36 qwen3:4b: 440 left
+16:37 qwen3:4b: 400 left
+16:38 qwen3:4b: 360 left
+16:40 qwen3:4b: 320 left
+16:41 qwen3:4b: 280 left
+16:42 qwen3:4b: 240 left
+16:43 qwen3:4b: 200 left
+16:44 qwen3:4b: 160 left
+16:46 qwen3:4b: 120 left
+16:47 qwen3:4b: 80 left
+16:48 qwen3:4b: 40 left
+16:49 qwen3:4b: 0 left
+16:53 mistral:7b: 1120 left
+16:56 mistral:7b: 1080 left
+introspect stopped at time limit
+16:58 mistral:7b: 1040 left
+16:59 phi4-mini:3.8b: 840 left
+17:00 phi4-mini:3.8b: 800 left
+17:01 phi4-mini:3.8b: 760 left
+17:02 phi4-mini:3.8b: 720 left
+17:03 phi4-mini:3.8b: 680 left
+17:04 phi4-mini:3.8b: 640 left
+17:05 phi4-mini:3.8b: 600 left
+17:06 phi4-mini:3.8b: 560 left
+17:07 phi4-mini:3.8b: 520 left
+17:08 phi4-mini:3.8b: 480 left
+17:09 phi4-mini:3.8b: 440 left
+17:10 phi4-mini:3.8b: 400 left
+17:11 phi4-mini:3.8b: 360 left
+17:11 phi4-mini:3.8b: 320 left
+17:12 phi4-mini:3.8b: 280 left
+17:13 phi4-mini:3.8b: 240 left
+17:14 phi4-mini:3.8b: 200 left
+17:15 phi4-mini:3.8b: 160 left
+17:16 phi4-mini:3.8b: 120 left
+17:17 phi4-mini:3.8b: 80 left
+17:18 phi4-mini:3.8b: 40 left
+17:19 phi4-mini:3.8b: 0 left
+waiting: ['phi4-mini:3.8b', 'qwen3:4b'] loaded
+waiting: ['phi4-mini:3.8b', 'qwen3:4b'] loaded
+waiting: ['phi4-mini:3.8b', 'qwen3:4b'] loaded
+waiting: ['phi4-mini:3.8b', 'qwen3:4b'] loaded
+waiting: ['phi4-mini:3.8b', 'qwen3:4b'] loaded
+waiting: ['llama3.2:3b', 'qwen3:4b'] loaded
+waiting: ['phi4-mini:3.8b'] loaded
+waiting: ['phi4-mini:3.8b'] loaded
+waiting: ['gemma3:4b', 'phi4-mini:3.8b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+waiting: ['qwen3:4b'] loaded
+17:39 mistral:7b: 1000 left
+17:41 mistral:7b: 960 left
+17:42 mistral:7b: 920 left
+17:44 mistral:7b: 880 left
+17:45 mistral:7b: 840 left
+17:46 mistral:7b: 800 left
+17:48 mistral:7b: 760 left
+17:49 mistral:7b: 720 left
+17:51 mistral:7b: 680 left
+17:52 mistral:7b: 640 left
+17:54 mistral:7b: 600 left
+17:55 mistral:7b: 560 left
+17:57 mistral:7b: 520 left
+17:58 mistral:7b: 480 left
+17:59 mistral:7b: 440 left
+18:01 mistral:7b: 400 left
+18:02 mistral:7b: 360 left
+18:04 mistral:7b: 320 left
+18:05 mistral:7b: 280 left
+18:07 mistral:7b: 240 left
+18:08 mistral:7b: 200 left
+18:09 mistral:7b: 160 left
+18:11 mistral:7b: 120 left
+18:12 mistral:7b: 80 left
+18:14 mistral:7b: 40 left
+18:15 mistral:7b: 0 left
+introspect done

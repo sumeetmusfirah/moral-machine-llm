@@ -1,0 +1,6 @@
+target,n_content_scenarios
+gemma3:4b,1.0
+llama3.2:3b,56.0
+mistral:7b,38.0
+phi4-mini:3.8b,53.0
+qwen3:4b,6.0
