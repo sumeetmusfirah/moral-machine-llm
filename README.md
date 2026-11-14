@@ -1,34 +1,57 @@
 # Do language models know their own morals?
 
-A Moral Machine study on five small open models, run locally for $0. Started 2026-11-09.
+Five small open language models (3B to 7B, run locally) face the self-driving-car dilemmas from MIT's Moral
+Machine experiment, and their choices, explanations and self-reports are compared with 40 million human decisions.
+Results: [RESULTS.md](RESULTS.md).
 
-## Question
+## Findings in brief
 
-Awad et al. (2018) asked millions of people to choose who a self-driving car with failed brakes should kill, and
-estimated how much nine factors (age, number of lives, species, legality, and so on) move those choices.
-Several papers have since run the same dilemmas on LLMs (below). This study asks three things they don't
-answer together:
+1. **Explanations don't fit the dilemma.** Asked to choose and explain, mistral:7b, gemma3:4b and phi4-mini claim
+   their choice "minimizes the loss of life" in 51% to 65% of dilemmas where both groups are the same size, as
+   often as when the groups differ. Some claim to save more lives while choosing the option that kills more.
+2. **Moral wording backfires.** In 4 of 5 models, describing pedestrians as "abiding by / flouting the law" makes the
+   model less likely to spare the law-abiding. With plain traffic-light wording, they move toward the human
+   preference.
+3. **What they say doesn't match what they do.** mistral says most factors "should not matter" (67% of answers),
+   yet its choices favor executives over homeless people.
+4. **They can't predict their own choices** better than a rule based on their usual "Case 1" or "Case 2" habit.
+5. **No model favors the young over the elderly**, one of the strongest human preferences; four of five have
+   weaker preferences overall than people in any of 130 countries.
 
-1. **Revealed preferences with position bias removed.** Small models often pick "Case 1" regardless of content. We
-   ask every dilemma in both case orders and read the token probabilities, which separates position bias from moral
-   preference exactly (see Method).
-2. **Self-knowledge.** We also ask each model, in the abstract, how much each factor *should* matter and how much it
-   *would* matter to its own choices. Does what it says match what it does? This is the stated-vs.-revealed gap
-   (moral psychology) and a test of introspection (Binder et al. 2024), on the same Delta P scale as the human data.
-3. **Refusal vs. preference.** Some models refuse to choose. The forced-choice probabilities show whether a
-   refusing model still has a consistent preference underneath.
+All preliminary: small 4-bit models, English only, one prompt template per experiment.
 
-## Prior work (checked 2026-11-09)
+## What this study does differently
 
-| Paper | What it did | How this differs |
-|---|---|---|
-| Takemoto 2024, *R. Soc. Open Sci.* | Moral Machine on GPT-3.5, GPT-4, PaLM 2, Llama 2 | Free-text answers; no stated-vs.-revealed arm |
-| Ahmad & Takemoto 2025, *PLoS One* 20:e0322776 ([arXiv 2411.06790](https://arxiv.org/abs/2411.06790)) | 52 LLMs; models over 10B closer to humans | Same |
-| Jin et al. 2025, ICLR, MultiTP ([arXiv 2407.02273](https://arxiv.org/abs/2407.02273), [code](https://github.com/causalNLP/moralmachine)) | 107 languages, 19 models | The language twist is done; we don't repeat it |
-| Vida et al. 2024, AIES ([arXiv 2407.15184](https://arxiv.org/abs/2407.15184)) | Multilingual moral preferences | Same |
-| Stated vs. revealed in LLMs (e.g. arXiv 2504.06324, TrolleyBench, NeurIPS 2025) | General moral dilemmas | Not on the Moral Machine Delta P scale with a human anchor |
+Earlier work ran the Moral Machine on LLMs by reading their free-text answers (Takemoto 2024; Ahmad & Takemoto 2025,
+52 models) or by translating the dilemmas into many languages (Jin et al. 2025, MultiTP; Vida et al. 2024). Here:
 
-Before posting, search again: this area moves fast.
+- **Position bias is separated from preference.** Every dilemma is asked in both case orders, and the choice is read
+  from token probabilities rather than free text. A model that always says "Case 1" scores zero preference instead
+  of a confident profile. gemma3:4b turned out to be that model: its free answers agree across orders 3% of the time.
+- **Refusing models are still measured.** llama3.2:3b refuses every dilemma in free text; its forced-choice
+  probabilities still show clear preferences.
+- **Explanations are checked against the facts.** Free-text reasons are coded automatically and compared with what
+  the dilemma contains (group sizes, traffic signals, animals), giving a confabulation rate per model. Unfaithful
+  explanations are known in general (Turpin et al. 2023); this measures them in a setting with a human baseline.
+- **Stated values are compared with revealed ones on the same scale**, with a control: every stated question is also
+  asked with the two groups swapped, which exposed number habits (phi4-mini answers "−50" whichever group comes
+  first) that would otherwise look like values.
+- **Wording is tested, not assumed.** The legality dilemmas are re-run with neutral wording; the original result
+  reversed and is withdrawn in RESULTS.md.
+- **Introspection is tested zero-shot against a position-only baseline.** Binder et al. (2024) fine-tuned models to
+  predict themselves; here the models are untrained, and habit is separated from self-knowledge.
+- **Predictions were committed before each experiment's data** (`results/*/PREDICTION.md` and the git history).
+
+## Prior work
+
+| Paper | What it did |
+|---|---|
+| Takemoto 2024, *R. Soc. Open Sci.* | Moral Machine on GPT-3.5, GPT-4, PaLM 2, Llama 2 |
+| Ahmad & Takemoto 2025, *PLoS One* 20:e0322776 ([arXiv 2411.06790](https://arxiv.org/abs/2411.06790)) | 52 LLMs; models over 10B closer to humans |
+| Jin et al. 2025, ICLR, MultiTP ([arXiv 2407.02273](https://arxiv.org/abs/2407.02273), [code](https://github.com/causalNLP/moralmachine)) | 107 languages, 19 models |
+| Vida et al. 2024, AIES ([arXiv 2407.15184](https://arxiv.org/abs/2407.15184)) | Multilingual moral preferences |
+| Turpin et al. 2023, NeurIPS ([arXiv 2305.04388](https://arxiv.org/abs/2305.04388)) | Chain-of-thought explanations that don't reflect the real reason |
+| Binder et al. 2024 ([arXiv 2410.13787](https://arxiv.org/abs/2410.13787)) | Can models predict their own behavior (introspection) |
 
 ## Datasets
 
@@ -103,6 +126,20 @@ for sparing side a. So δ = (logit₁ − logit₀)/2 and the debiased P(spare a
 **Stated arm.** For each attribute, two framings, 10 samples each: "how much *should* the car favor sparing X over Y"
 and "how much *would you* favor…", from −100 to 100, divided by 100 to put it on the Delta P scale.
 
+**Stated arm, swap control.** Each stated question is also asked with the two groups swapped; the sign is reversed and
+the two are averaged, so a fixed number habit cancels.
+
+**Confabulation** (`mm/confab.py`). 50 dilemmas × 2 orders per model: "choose, then explain in two sentences",
+temperature 0. Explanations are coded by regular expression for explicit claims about numbers ("fewer deaths",
+"minimizes the loss of life"), legality and animals, then checked against the dilemma. An automated first pass on
+60 rows is in `results/confab/handcheck_firstpass.csv`.
+
+**Wording check.** The 93 legality dilemmas re-asked with "crossing on a green light / against a red light".
+
+**Introspection** (`mm/introspect.py`). Each model predicts, in a fresh context, whether it (or another named model)
+will answer Case 1 or Case 2; scored against its actual forced choice. Details in
+`results/introspection/RESULTS.md`.
+
 **Measures (fixed before results came in):**
 - Effect per attribute vs. global humans; Spearman rank correlation; Euclidean distance; the 3 nearest countries.
 - Self-knowledge: correlation and mean absolute error between stated and revealed effects, per framing.
@@ -117,6 +154,16 @@ PYTHONPATH=. uv run python -m mm.run --models gemma3:4b llama3.2:3b qwen3:4b phi
 PYTHONPATH=. uv run python -m mm.analyze      # writes results/effects.csv, summary.csv, scenario_level.csv
 ```
 
+Other experiments:
+
+```bash
+PYTHONPATH=. uv run python -m mm.run --models <models> --arm revealed --limit 325 --only-law --wording neutral
+PYTHONPATH=. uv run python -m mm.confab --models mistral:7b phi4-mini:3.8b llama3.2:3b gemma3:4b --n 50
+PYTHONPATH=. uv run python -m mm.confab --analyze
+PYTHONPATH=. uv run python -m mm.introspect        # see results/introspection/RESULTS.md
+PYTHONPATH=. uv run python -m mm.plot && PYTHONPATH=. uv run python -m mm.plot_confab
+```
+
 Optional: `--persona Japan` adds "Answer as a typical person from Japan would" to the dilemmas.
 
 ## Limitations
@@ -127,3 +174,8 @@ Optional: `--persona Japan` adds "Answer as a typical person from Japan would" t
 - The paper's AMCE comes from conjoint regression on outcome rows; ours is a paired within-type difference. Same
   target under random assignment, not the same estimator.
 - English only. The human data mixes 10 languages.
+
+## License
+
+Code: MIT ([LICENSE](LICENSE)). Moral Machine data in `data/raw/`: CC BY 4.0, from Awad et al. (2018),
+[osf.io/3hvt2](https://osf.io/3hvt2/). Model weights belong to their makers under their own licenses (see Models).
