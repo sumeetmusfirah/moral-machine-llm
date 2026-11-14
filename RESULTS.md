@@ -118,6 +118,16 @@ law-abiding; with plain wording those four move toward the human direction. qwen
 the wording and is withdrawn as a statement about the models' preferences. Why the moral label backfires isn't
 tested here. (gemma3's own numbers are mostly position noise; the direction holds without it.)
 
+## 5. Can a model predict its own choice? (introspection)
+
+Full write-up: `results/introspection/RESULTS.md`. Each model predicted, in a fresh context, whether it would answer
+Case 1 or Case 2, and predicted the other four models. Every model predicts itself better than the others do on
+average (+10 to +61 points), but only because its prediction shares its own "Case 1" or "Case 2" habit: no model
+beats the trivial rule "always say this model's usual case", and the best single other model matches or beats self
+for three of five. On dilemmas where the choice depends on content, llama3.2 and mistral are at chance (51%, 50%)
+predicting themselves. phi4-mini reaches 86% by solving the dilemma inside the prediction prompt, and gives the
+same answer when asked to predict any other model. No evidence of privileged self-knowledge.
+
 ## Limitations
 
 - 3B to 7B models at 4-bit. A larger model may behave differently; that is the most useful next test.
